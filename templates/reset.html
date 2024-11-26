@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annonces</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+    <link href="{% static 'css/annonce.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar-wrapper">
+            <div class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{% url 'index' %}">CICAMU</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i> Accueil</a></li>
+                            <li><a href="{% url 'demande' %}"><i class="fa fa-fw fa-credit-card"></i> Demande de prêt</a></li>
+                            <li><a href="{% url 'historiques' %}"><i class="fa fa-fw fa-book"></i> Historiques des prêts</a></li>
+                            <li><a href="{% url 'annonces' %}"><i class="fa fa-fw fa-bullhorn"></i> Annonces</a></li>
+                            <li><a href="{% url 'vuePret' %}"><i class="fa fa-fw fa-check"></i> Les demandes</a></li>
+                            <li>
+                                <a href="{% url 'comptes' %}"><i class="fa fa-fw fa-money-bill-wave"></i>Les comptes</a>
+                            </li>
+                            <li><a href="{% url 'about' %}"><i class="fa fa-fw fa-info-circle"></i> À propos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1>Liste des Annonces</h1>
+    <a href="{% url 'ajouter_annonce' %}" class="lien">Ajouter une Annonce</a>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <div class="annonces-container">
+        {% for annonce in annonces %}
+            <div class="annonce" 
+                 onclick="afficherContenu('{{ annonce.titre|escapejs }}', '{{ annonce.contenu|escapejs }}', '{{ annonce.id }}')">
+                
+                <h3>{{ annonce.titre }}</h3>
+                <p>{{ annonce.contenu|truncatewords:20 }}</p>
+                <small>Posté le {{ annonce.date_creation }}</small>
+                
+                <p>ID de l'annonce : {{ annonce.id }}</p>
+                <a href="{% url 'supprimer_annonce' annonce.id %}" 
+                style="color: red; text-decoration: none;" 
+                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?');">
+                 Supprimer
+                </a>               
+            </div>
+        {% empty %}
+            <p>Aucune annonce disponible.</p>
+        {% endfor %}   
+    </div>
+
+    <div id="contenu-annonce"></div> 
+    
+    <script src="{% static 'js/annonce.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CICAMU</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+    <link href="{% static 'css/demande.css' %}" rel="stylesheet">
+</head>
+
+<body>
+        <div class="container">
+            
+            <div class="navbar-wrapper">
+                <div class="navbar navbar-inverse navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="{% url 'index' %}">CICAMU</a>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active">
+                                    <a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i> Accueil</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{% url 'demande' %}"><i class="fa fa-fw fa-credit-card"></i> Demande de prêt</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'historiques' %}"><i class="fa fa-fw fa-book"></i>Historiques des prêts</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'annonces' %}"><i class="fa fa-fw fa-bullhorn"></i> Annonces</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'vuePret' %}"><i class="fa fa-fw fa-check"></i>Les demandes</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="{% url 'mediatheque' %}"><i class="fa fa-fw fa-envelope"></i> Médiathèque</a>
+                                </li>-->
+                                <!-- <li>
+                                    <a href="{% url 'profil' %}"><i class="fa fa-fw fa-user-circle"></i> Mon Profil</a>
+                                </li> -->
+                                <li>
+                                    <a href="{% url 'comptes' %}"><i class="fa fa-fw fa-money-bill-wave"></i>Les comptes</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'about' %}"><i class="fa fa-fw fa-user"></i> À propos</a>
+                                </li>  
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+     
+            <div class="resources-section">
+                <h2>PRÊTS</h2>
+                <p>Demandez votre prêt dès maintenant et donnez vie à vos projets avec le soutien de notre mutuelle.</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card" data-category="PO" data-description="Prêt accessible à tout moment de l’année. Remboursable par anticipation au besoin. Le remboursement se fait suivant le tableau d’amortissement sur 12 mois maximum. Les intérêts sur ce prêt sont prélevés mensuellement pour un taux moyen n’excédant pas 2 % sur la durée du prêt">
+                        <h3>Prêt ordinaire</h3>
+                        <a href="#" class="btn">En savoir plus</a>
+                    </div>
+                    <div class="resource-card" data-category="PSPI" data-description="Prêt disponible uniquement à partir de Janvier et totalement prélevé au paiement de la prime d’intéressement. Les intérêts sur ce prêt sont prélevés mensuellement pour un taux moyen n’excédant pas 2 % sur la durée du prêt.">
+                        <h3>Prêt spéciale sur la PI</h3>
+                        <a href="#" class="btn">En savoir plus</a>
+                    </div>
+                    <div class="resource-card" data-category="PS13" data-description="Prêt disponible uniquement à partir de janvier. Remboursable par anticipation au besoin. Les intérêts sur ce prêt sont prélevés mensuellement pour un taux moyen n’excédant pas 2 % sur la durée du prêt et le principal totalement prélevé sur le salaire du 13 -ème mois.">
+                        <h3>Prêt spéciale sur le 13e mois</h3>
+                        <a href="#" class="btn">En savoir plus</a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div id="loanModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Détails du Prêt</h2>
+                    <p id="loan-description">La description du prêt sélectionné.</p>
+                </div>
+            </div>
+
+            <div class="demande-container">
+                <a href="{% url 'demande_pret' %}" class="btn-demande">Demander un prêt</a>
+            </div>
+
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="{% static 'js/demande.js' %}"></script>
+    
+    
+
+    </body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    {%load static%}
+<head>
+    <title>Lettre de demande</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .entete, .signature {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .objet {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .contenu {
+            margin-top: 30px;
+            text-align: justify;
+        }
+        .destinataire {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+	.decale {
+    	    margin-left: 20px; 
+	}
+    </style>
+</head>
+<body>
+    <div class="entete">
+        <p>{Lieu, date}</p>
+    </div>
+
+    <div class="destinataire">
+        <p>A Monsieur le Président <br>  de la mutuelle de la <br> CICA-RE</p>
+    </div>
+
+    <p class="objet"> <u>Objet : </u> Demande de prêt</p>
+
+    <div class="contenu">
+        <p class="decale">Monsieur,</p>
+        <p class="decale">Je viens solliciter un pret {type de pret} de {montant} remboursable en {duree}.</p>
+        <p>Espérant une suite favorable, veuillez recevoir mes sentiments distingués.</p>
+    </div>
+
+    <div class="signature">
+        <p>{Nom et prénoms}</p>
+    </div>
+</body>
+</html>

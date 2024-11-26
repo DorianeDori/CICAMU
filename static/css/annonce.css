@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.lien {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.lien:hover {
+    background-color: #0056b3;
+}
+
+/* Liste des annonces */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+    gap: 15px; /* Espacement entre les annonces */
+    justify-content: space-evenly; /* Espacement équilibré entre les annonces */
+}
+
+li {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 300px; /* Largeur fixe pour chaque annonce */
+    flex: 1 1 300px; /* Permet aux annonces de s'adapter */
+}
+
+li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    margin: 0;
+    color: #333;
+}
+
+/* Contenu de l'annonce avec commentaires */
+#contenu-annonce {
+    margin-top: 30px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#contenu-annonce h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    resize: none;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+.annonces-container {
+    display: block; /* Comportement par défaut pour les conteneurs */
+    padding: 20px;
+}
+
+.annonce {
+    display: block; /* Pour faire de l'annonce un lien cliquable sur toute la surface */
+    background-color: #f8f9fa; /* Couleur de fond de l'annonce */
+    padding: 15px; /* Espace à l'intérieur de l'annonce */
+    margin-bottom: 20px; /* Espacement entre les annonces */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+    text-align: left; /* Aligne le texte à gauche */
+    text-decoration: none; /* Supprime le soulignement du lien */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition pour l'effet */
+}
+
+/* Effet lors du survol de l'annonce */
+.annonce:hover {
+    transform: scale(1.05);
+   /* transform: translateY(-5px); /* Déplace légèrement l'annonce vers le haut */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+/* Si tu veux enlever la marge après la dernière annonce */
+.annonce:last-child {
+    margin-bottom: 0;
+}
+.del{
+    margin-left: 1000px;
+}
+

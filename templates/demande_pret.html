@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Demande de Prêt</title>
+    <link rel="stylesheet" href="../static/css/form_pret.css">    
+    
+</head>
+<body>
+    
+    <div id="formulairediv">
+        
+        <form id="formulaire">
+            <label for="type_de_pret">Type de prêt :</label>
+            <select id="type_de_pret" name="type_de_pret" required>
+                <option value="" disabled selected hidden>Sélectionnez un type de prêt</option>
+                <option value="ordinaire">Prêt ordinaire</option>
+                <option value="speciale_PI">Prêt spécial sur la PI</option>
+                <option value="speciale_13e_mois">Prêt spécial le 13e mois</option>
+            </select>
+        
+            <label for="duree">Durée de remboursement (en mois) :</label>
+            <input type="number" id="duree" name="duree" placeholder="Durée de remboursement" required>
+        
+            <label for="motif_du_pret">Motif du prêt :</label>
+            <input type="text" id="motif_du_pret" name="motif_du_pret" placeholder="Entrez le motif du prêt" required>
+        
+            <label for="montant">Montant du prêt :</label>
+            <input type="number" id="montant" name="montant" placeholder="Entrez le montant du prêt" required>
+        
+            <button id="simuler-amortissement" type="button">Simuler le tableau d'amortissement</button>
+        </form>
+    </body>
+    
+    <!-- partie du tableau d'amortissement -->
+    <div id="tableau" style="display: none;">
+        <span class="close">&times;</span>
+        <br>
+        <h2>TABLEAU D'AMORTISSEMENT DE PRÊT</h2>
+
+        <table class="info-table">
+            <!-- c'est dans js -->
+        </table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>PÉRIODE</th>
+                    <th>MONTANT DÛ</th>
+                    <th>REMBOURSEMENT NOMINAL</th>
+                    <th>INTÉRÊT</th>
+                    <th>MENSUALITÉS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- c'est dans js -->
+            </tbody>
+        </table>
+        <br>
+        <button onclick="window.location.href='letter_demande.html'">Soumettre votre demande</button>
+    </div>
+    
+    <script>
+        const firstName = "{{ first_name }}";  
+        const lastName = "{{ last_name }}"; 
+    </script>
+
+   <script src="../static/js/amorti.js"></script>
+   <script src="../static/js/form_pret.js"></script>
+   
+
+</body>
+</html>
