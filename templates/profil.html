@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CICAMU</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar-wrapper">
+            <div class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
+                            type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{% url 'index' %}">CICAMU</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i> Accueil</a>
+                            </li>
+                            
+                            <li>
+                                <a href="{% url 'demande' %}"><i class="fa fa-fw fa-credit-card"></i> Demande de prêt</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'historiques' %}"><i class="fa fa-fw fa-book"></i>Historiques des prêts</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'annonces' %}"><i class="fa fa-fw fa-bullhorn"></i> Annonces</a>
+                            </li>
+                            <!-- <li>
+                                <a href="{% url 'mediatheque' %}"><i class="fa fa-fw fa-envelope"></i> Médiathèque</a>
+                            </li>-->
+                            <!-- <li>
+                                <a href="{% url 'profil' %}"><i class="fa fa-fw fa-user-circle"></i> Mon Profil</a>
+                            </li> -->
+                            <li>
+                                <a href="{% url 'about' %}"><i class="fa fa-fw fa-user"></i> À propos</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    
+</body>
+
+</html>

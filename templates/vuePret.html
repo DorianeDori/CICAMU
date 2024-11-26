@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+    {%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demandes de Prêts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/vuePret.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar-wrapper">
+            <div class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"
+                            type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{% url 'index' %}">CICAMU</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i> Accueil</a>
+                            </li>
+                            
+                            <li>
+                                <a href="{% url 'demande' %}"><i class="fa fa-fw fa-credit-card"></i> Demande de prêt</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'historiques' %}"><i class="fa fa-fw fa-book"></i>Historiques des prêts</a>
+                            </li>
+                        
+                            <li>
+                                <a href="{% url 'annonces' %}"><i class="fa fa-fw fa-bullhorn"></i> Annonces</a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'vuePret' %}"><i class="fa fa-fw fa-check"></i>Les demandes</a>
+                            </li>
+                            
+                            <!-- <li>
+                                <a href="{% url 'mediatheque' %}"><i class="fa fa-fw fa-envelope"></i> Médiathèque</a>
+                            </li>-->
+                            <!-- <li>
+                                <a href="{% url 'profil' %}"><i class="fa fa-fw fa-user-circle"></i> Mon Profil</a>
+                            </li> -->
+                            <li>
+                                <a href="{% url 'comptes' %}"><i class="fa fa-fw fa-money-bill-wave"></i>Les comptes</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'about' %}"><i class="fa fa-fw fa-info-circle"></i> À propos</a>
+                            </li>
+                        
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenaire">
+        <h1>Demandes de Prêts</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID du Prêt</th>
+                    <th>Nom du demandeur</th>
+                    <th>Montant</th>
+                    <th>Date de Demande</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pret in prets %}
+                <tr>
+                    <td>{{ pret.id }}</td>  
+                    <td>{{ pret.adherent.user.username }}</td>  
+                    <td>{{ pret.montant_pret }} €</td>  
+                    <td>{{ pret.date_demande }}</td>  
+                    <td class="{{ pret.statut|lower }}">{{ pret.statut }}</td>
+                    <td>
+                        <form>
+                            <select name="nouveau_statut" data-id="{{ pret.id }}" onchange="updateStatut(this)">
+                                <option value="">Choisir un statut</option>
+                                <option value="approuve">Approuvé</option>
+                                <option value="refuse">Refusé</option>
+                                <option value="en attente">En attente</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">Aucune demande de prêt disponible.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{% static 'js/vuePret.js' %}"></script>
+</body>
+</html>

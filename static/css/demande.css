@@ -1,0 +1,154 @@
+
+
+body {
+    background-image: url("../images/arg.jpg"); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    color: #fff; 
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+ /*  backdrop-filter: blur(5px); /* Applique du flou */
+    z-index: -1; 
+}
+
+
+.col-md-12{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px%;
+  background-size: cover;
+  -webkit-background-size: cover; 
+}    
+
+.resources-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background-color: #0056b3;
+}
+
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.resource-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resource-card h3 {
+    font-size: 18px;
+    margin-top: 0;
+    color: #1515d6;
+}
+
+.resource-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.resource-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #a89e0b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.resource-card .btn:hover {
+    background-color: #5a5526;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    color: #264ec6;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.demande-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+.btn-demande {
+    padding: 10px 20px;
+    background-color: #0c0fc9;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-demande:hover {
+    background-color: #4483c7;
+}

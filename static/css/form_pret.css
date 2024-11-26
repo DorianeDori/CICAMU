@@ -1,0 +1,125 @@
+formulaire {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 50px;
+    background-image: url("../images/form_pret.jpg");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+form {
+    max-width: 800px;
+    margin: 5px;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    width: 50%; 
+    margin: 0 auto; 
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+select{
+    width: 103%;
+    padding: 10px;
+    margin-bottom: 50px;
+    border: 2.5px solid #ccc;
+    border-radius: 10px;
+}    
+
+select option.placeholder {
+    color: #aca9a96f; 
+    font-style: italic; 
+}
+
+
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 50px;
+    border: 2.5px solid #ccc;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #5e4caf;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 200px;
+    cursor: pointer;
+    width: 35%;
+}
+
+button:hover {
+    background-color: #458ba0;
+}
+
+.btn {
+    display: inline-block; 
+    margin-right: 300px; 
+}
+
+
+
+/* css du tableau */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 5px;
+    text-align: right;
+    border: 2px solid;
+}
+
+h2 {
+    border: 3px solid;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10 px;
+}
+
+.info {
+    margin-bottom: 20px; 
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table td {
+    border: none; 
+    padding: 5px;
+    font-size: 14px; 
+}
+
+.info-table td:first-child,
+.info-table td:nth-child(2),
+.info-table td:nth-child(4),
+.info-table td:nth-child(3),
+.info-table td:nth-child(5) {
+    text-align: left; 
+    font-weight: bold; 
+}
+
+.info-table td:nth-child(2) {
+    background-color: #f2f2f2; 
+}
+
+.close {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #000;
+}

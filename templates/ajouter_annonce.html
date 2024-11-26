@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+    {%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Annonce</title>
+
+    <!-- Inclure Quill.js CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="{% static 'css/ajouter_annonce.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <h1>Ajouter une Annonce</h1>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="titre">Objet :</label>
+        <input type="text" name="titre" id="titre" required><br><br>
+
+        
+        <!-- Conteneur de l'éditeur -->
+        <div id="contenu" style="height: 200px;"></div>
+
+        <!-- Champ caché pour soumettre le contenu au backend -->
+        <input type="hidden" name="contenu_html" id="contenu_html">
+
+        <br><br>
+        <button type="submit" onclick="submitForm()">Soumettre l'annonce</button>
+    </form>
+
+    <a href="{% url 'annonces' %}">Retour à la Liste des Annonces</a>
+
+    <!-- Inclure Quill.js JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <script src="{% static 'js/ajouter_annonce.js' %}"></script>
+
+</body>
+</html>

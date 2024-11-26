@@ -1,0 +1,135 @@
+body{
+    padding-bottom: 40px;
+    color: #5a5a5a;
+}
+.navbar-wrapper{
+    position: relative;
+    z-index: 15;
+}
+
+.carousel{
+    margin-bottom: 60px;
+    margin-top: -90px;
+}
+.carousel-caption{
+    z-index: 10;
+
+}
+.carousel .item{
+    height: 500px;
+    background-color: #777;
+}
+.carousel-inner> .item >img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+}
+/* Type 1 Button */
+.type1-button {
+    background-color: rgb(83, 176, 83);
+    color: antiquewhite;
+}
+
+ /* Type 2 Button */
+.type2-button {
+    background-color: rgb(213, 74, 69);
+    color: antiquewhite;
+}
+
+/* Type 3 Button */
+.type3-button {
+    background-color: rgb(84, 189, 220);
+    color: antiquewhite;
+}
+
+.marketing{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.marketing .col-lg-4{
+    text-align: center;
+    margin-bottom: 20px ;
+}
+.marketing h2{
+    font-weight: 400;
+}
+.marketing .col-lg-4 p{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar .nav>li>a{
+    color: #fff;
+    text-shadow: none;
+}
+.navbar .nav>li a:hover{
+    color: #666;
+}
+.navbar .nav .active>a{
+    color: #666;
+    background: none;
+
+}
+.navbar .nav .active >a:hover{
+    background: none;
+}
+
+footer{
+    background-color: #ffffff4d;
+    padding: 5px;
+    
+}
+.linedashed{
+    border-bottom: 1px dashed #d1cdcd;
+    margin-bottom: 10px;
+  
+}
+.pull-right{
+    float: right;
+    margin-right: 80px;
+    font-size: larger;
+    font-weight: 1000;
+    font-display: bold;
+}
+
+@media (min-width:768px) {
+    .marketing{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .navbar-wrapper{
+        margin-top: 20px;
+    }
+    .navbar-wrapper .navbar{
+        border-radius: 4px;
+    }
+    .carousel-caption p{
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: 21px;
+
+    }
+    
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.blur-container {
+    position: relative;
+}
+
+.blur-image {
+    filter: blur(5px); 
+    width: 100%; 
+}
+

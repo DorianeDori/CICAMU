@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Connexion & Inscription</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Formulaire de connexion -->
+                <form method="POST" action="{% url 'login' %}" class="sign-in-form">
+                    {% csrf_token %}
+                    <h2 class="title">Connexion</h2>
+                    {{ login_form.non_field_errors }}  
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="Matricule" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Mot de passe" required />
+                    </div>
+                    <input type="submit" value="Se connecter" class="btn solid" name="login">
+                </form>
+                
+                <!-- Formulaire d'inscription -->
+                <form method="POST" action="{% url 'register' %}" class="sign-up-form">
+                    {% csrf_token %}
+                    <h2 class="title">Inscription</h2>
+                    {{ signup_form.non_field_errors }} 
+                    <div class="input-field">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" name="matricule" placeholder="Matricule" required />
+                    </div>   
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" placeholder="Email" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="first_name" placeholder="Nom" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="last_name" placeholder="Prénoms" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Mot de passe" required />
+                    </div>
+                    <input type="submit" value="S'inscrire" class="btn solid" name="register">
+                </form>
+                
+
+            </div>
+        </div>
+
+        <div class="panel-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <p>Vous n'avez pas de compte ?</p>
+                    <button class="btn transparent" id="sign-up-btn">S'inscrire</button>
+                </div>
+                <img src="{% static 'images/log.svg' %}"  class="image" alt="img-1">
+            </div>
+
+            <div class="panel right-panel">
+                <div class="content">
+                    <p>Vous avez déjà un compte ?</p>
+                    <button class="btn transparent" id="sign-in-btn">Se connecter</button>
+                </div>
+                <img src="{% static 'images/register.svg' %}" class="image" alt="img-2">
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/auth.js' %}"></script>
+</body>
+</html>

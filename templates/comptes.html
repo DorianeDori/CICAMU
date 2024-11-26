@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Comptes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+    <link href="{% static 'css/comptes.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar-wrapper">
+            <div class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{% url 'index' %}">CICAMU</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i> Accueil</a></li>
+                            <li><a href="{% url 'demande' %}"><i class="fa fa-fw fa-credit-card"></i> Demande de prêt</a></li>
+                            <li><a href="{% url 'historiques' %}"><i class="fa fa-fw fa-book"></i> Historiques des prêts</a></li>
+                            <li><a href="{% url 'annonces' %}"><i class="fa fa-fw fa-bullhorn"></i> Annonces</a></li>
+                            <li><a href="{% url 'vuePret' %}"><i class="fa fa-fw fa-check"></i> Les demandes</a></li>
+                            <li>
+                                <a href="{% url 'comptes' %}"><i class="fa fa-fw fa-money-bill-wave"></i>Les comptes</a>
+                            </li>
+                            <li><a href="{% url 'about' %}"><i class="fa fa-fw fa-info-circle"></i> À propos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenaire">
+        <h2>Gestion de Comptes</h2>
+        <div>
+            <h4>Soldes Initiaux</h4>
+            <div class="form-row">
+                <div>
+                    <label for="soldeInitialCaisse">Caisse :</label>
+                    <input type="number" id="soldeInitialCaisse" value="0">
+                </div>
+                <div>
+                    <label for="soldeInitialBanque">Banque :</label>
+                    <input type="number" id="soldeInitialBanque" value="0">
+                </div>
+            </div>
+            <button id="setSoldes" class="btn btn-primary">Définir Soldes Initiaux</button>
+        </div>
+    
+        <br>
+        <h4>Ajouter une Transaction</h4>
+        <form id="transactionForm">
+            <div class="form-row">
+                <div>
+                    <label for="date">Date :</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div>
+                    <label for="libelle">Libellé :</label>
+                    <input type="text" id="libelle" required>
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div>
+                    <label for="source">Source :</label>
+                    <select id="source" required>
+                        <option value="caisse">Caisse</option>
+                        <option value="banque">Banque</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="montant">Montant :</label>
+                    <input type="number" id="montant" required>
+                </div>
+            </div>
+        
+            <!-- Nouveau groupe pour numéro de virement et numéro de compte -->
+            <div id="banqueDetails" style="display: none;">
+                <div class="form-row">
+                    <div>
+                        <label for="numeroCheque">Numéro de chèque :</label>
+                        <input type="text" id="numeroCheque">
+                    </div>
+                    <div>
+                        <label for="numeroVirement">Numéro de virement :</label>
+                        <input type="text" id="numeroVirement">
+                    </div>
+                </div>
+            </div>
+        
+            <button type="submit">Ajouter</button>
+        </form>
+        
+    
+        <div>
+            <h3>Solde Caisse : <span id="soldeCaisse">0.00</span></h3>
+            <h3>Solde Banque : <span id="soldeBanque">0.00</span></h3>
+        </div>
+    
+        <table id="transactionTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Libellé</th>
+                    <th>Montant</th>
+                    <th>Source</th>
+                    <th>Numéro de Chèque</th>
+                    <th>Numéro de Compte</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    
+    <script src="{% static 'js/comptes.js' %}"></script>
+</body>
+</html>
